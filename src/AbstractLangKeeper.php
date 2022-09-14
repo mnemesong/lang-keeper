@@ -4,7 +4,7 @@ namespace Mnemesong\LangKeeper;
 
 use Webmozart\Assert\Assert;
 
-abstract class LangKeeper
+abstract class AbstractLangKeeper
 {
     /* @var string[] $data */
     /* @phpstan-ignore-next-line */

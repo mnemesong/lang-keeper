@@ -14,7 +14,8 @@
     "autoload": {
         "psr-4": {
             "Mnemesong\\LangKeeper\\": "src/",
-            "Mnemesong\\LangKeeperTestUnit\\": "test-unit/"
+            "Mnemesong\\LangKeeperTestUnit\\": "test-unit/",
+            "Mnemesong\\LangKeeperStubs\\": "stubs/"
         }
     },
     "authors": [
@@ -26,7 +27,8 @@
     "scripts": {
         "test:unit": "phpunit test-unit",
         "lint:src": "phpstan analyse src --level 9",
-        "lint:unit": "phpstan analyse test-unit --level 9"
+        "lint:unit": "phpstan analyse test-unit --level 9",
+        "lint:stubs": "phpstan analyse stubs --level 9"
     },
     "minimum-stability": "stable"
 }
