@@ -30,7 +30,7 @@ abstract class AbstractLangKeeper
      * @param string $langMark
      * @return string
      */
-    public function l(string $langMark): string
+    public function in(string $langMark): string
     {
         Assert::inArray($langMark, static::langs(), "Get incorrect lang-mark");
         return $this->data[$langMark];
