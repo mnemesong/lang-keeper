@@ -20,7 +20,7 @@ abstract class AbstractLangKeeper
     {
         Assert::isEmpty(array_diff(static::langs(), array_keys($data)), "Data contained in LangKeeper"
             . " not contains all required keys");
-        Assert::allStringNotEmpty($data, "Translatable data should be array of non-empty strings");
+        Assert::allString($data, "Translatable data should be array of non-empty strings");
         $result = new static();
         $result->data = $data;
         return $result;
