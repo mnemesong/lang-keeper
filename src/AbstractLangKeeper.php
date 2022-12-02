@@ -4,13 +4,21 @@ namespace Mnemesong\LangKeeper;
 
 use Webmozart\Assert\Assert;
 
-abstract class AbstractLangKeeper
+abstract class AbstractLangKeeper implements LangKeeperInterface
 {
     /* @var string[] $data */
     /* @phpstan-ignore-next-line */
     protected array $data = [];
 
-    protected final function __construct() {}
+    /**
+     * @param string[] $data
+     */
+    protected final function __construct(array $data) {
+        Assert::isEmpty(array_diff(static::langs(), array_keys($data)), "Data contained in LangKeeper"
+            . " not contains all required keys");
+        Assert::allString($data, "Translatable data should be array of non-empty strings");
+        $this->data = $data;
+    }
 
     /**
      * @param string[] $data
@@ -18,12 +26,7 @@ abstract class AbstractLangKeeper
      */
     public static function create(array $data): self
     {
-        Assert::isEmpty(array_diff(static::langs(), array_keys($data)), "Data contained in LangKeeper"
-            . " not contains all required keys");
-        Assert::allString($data, "Translatable data should be array of non-empty strings");
-        $result = new static();
-        $result->data = $data;
-        return $result;
+        return new static($data);
     }
 
     /**
